@@ -1,14 +1,12 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { AuthPage } from "../pages/Auth";
-import { HomePage } from "../pages/Home";
-import { ProfilePage } from "../pages/Profile";
 import { useContext, useEffect } from "react";
 import AuthContext from "../contexts/AuthContext";
+import { AppRoutes } from "./app.routes";
 
 export type RootStackRoutes = {
   Auth: undefined
-  Home: undefined
-  Profile: undefined
+  AppRoutes: undefined
 }
 
 const RootStack = createStackNavigator<RootStackRoutes>()
@@ -21,12 +19,11 @@ export const Routes = () => {
   }, []);
   
   return (
-    <RootStack.Navigator initialRouteName={isLogged ? 'Home' : 'Auth'} screenOptions={{
-      headerShown: false
+    <RootStack.Navigator initialRouteName={isLogged ? 'AppRoutes' : 'Auth'} screenOptions={{
+      headerShown: false,
     }}>
       <RootStack.Screen name={'Auth'} component={AuthPage} />
-      <RootStack.Screen name={'Home'} component={HomePage} />
-      <RootStack.Screen name={'Profile'} component={ProfilePage} />
+      <RootStack.Screen name={'AppRoutes'} component={AppRoutes} />
     </RootStack.Navigator>
   )
 }

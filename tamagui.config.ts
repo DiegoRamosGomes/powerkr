@@ -24,7 +24,8 @@ const tamaguiConfig = createTamagui({
     medium: {
       family: 'InterMedium',
       size: {
-        2: 14
+        2: 14,
+        5: 20
       }
     },
     bold: {
@@ -42,6 +43,7 @@ const tamaguiConfig = createTamagui({
       brand_primary_pure_disabled: '#866619',
       content_text_secondary: '#FFFFFF',
       content_text_tertiary: '#9AA4B2',
+      content_background_screen: '#121926',
       content_shape_secondary: '#364152',
       content_shape_tertiary: '#4B5565',
       content_error: '#dc2222'

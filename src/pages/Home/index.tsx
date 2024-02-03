@@ -1,9 +1,10 @@
 import {View} from "react-native";
+import { YStack } from "tamagui";
 
 export const HomePage = () => {
   return (
-    <View>
+    <YStack f={1} bg={'$content_background_screen'}>
       
-    </View>
+    </YStack>
   )
 }
