@@ -7,6 +7,7 @@ type AuthContextProps = {
   user: UserModel | null
   loading: boolean
   loginUserWithEmail(email: string, password: string): Promise<boolean>
+  initiateUserLogged(): Promise<boolean>
   logout(): void
 }
 
@@ -38,7 +39,17 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   
   const logout = () => {
     setUser(null)
+  }
+  
+  const initiateUserLogged = async () => {
+    const token = await service.retrieveToken()
+    if (token !== null) {
+      const loggedUser = await service.me()
+      setUser(loggedUser)
+      return true
+    }
     
+    return false
   }
   
   return (
@@ -47,7 +58,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       loading,
       isLogged: user === null,
       loginUserWithEmail,
-      logout
+      logout,
+      initiateUserLogged
     }}>
       {children}
     </AuthContext.Provider>

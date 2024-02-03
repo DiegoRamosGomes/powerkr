@@ -5,7 +5,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 export const AuthService = () => {
   const loginWithEmail = async (email: string, password: string) => {
     try {
-      const {data} = await postLoginUser(email, password)
+      const { data } = await postLoginUser(email, password)
       await saveToken(data.token)
       return {
         success: true,
@@ -21,9 +21,7 @@ export const AuthService = () => {
   
   const me = async () => {
     const data = await getAuthMe()
-    if (data.success) {
-      return data.data
-    }
+    return data.data
   }
   
   const saveToken = async (token: string) => {
@@ -40,6 +38,8 @@ export const AuthService = () => {
   
   return {
     loginWithEmail,
-    deleteToken
+    deleteToken,
+    retrieveToken,
+    me
   }
 }

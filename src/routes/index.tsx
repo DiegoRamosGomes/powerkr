@@ -2,6 +2,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { AuthPage } from "../pages/Auth";
 import { HomePage } from "../pages/Home";
 import { ProfilePage } from "../pages/Profile";
+import { useContext, useEffect } from "react";
+import AuthContext from "../contexts/AuthContext";
 
 export type RootStackRoutes = {
   Auth: undefined
@@ -12,8 +14,14 @@ export type RootStackRoutes = {
 const RootStack = createStackNavigator<RootStackRoutes>()
 
 export const Routes = () => {
+  const {initiateUserLogged, isLogged} = useContext(AuthContext)
+  
+  useEffect(() => {
+    initiateUserLogged().then()
+  }, []);
+  
   return (
-    <RootStack.Navigator initialRouteName={'Auth'} screenOptions={{
+    <RootStack.Navigator initialRouteName={isLogged ? 'Home' : 'Auth'} screenOptions={{
       headerShown: false
     }}>
       <RootStack.Screen name={'Auth'} component={AuthPage} />
