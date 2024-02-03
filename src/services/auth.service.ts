@@ -1,8 +1,6 @@
-import { ApiResponse } from "../models/api-response.model";
 import { postLoginUser } from "../mocks/auth_login";
 import { getAuthMe } from "../mocks/auth_me";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { UserModel } from "../models/user.model";
 
 export const AuthService = () => {
   const loginWithEmail = async (email: string, password: string) => {

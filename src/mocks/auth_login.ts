@@ -1,4 +1,4 @@
-import { authFormType, LoginResponse } from "../models/auth-user.model";
+import { LoginResponse } from "../models/auth-user.model";
 import { ApiResponse } from "../models/api-response.model";
 
 export const postLoginUser = (email: string, password: string): Promise<ApiResponse<LoginResponse>> => {
