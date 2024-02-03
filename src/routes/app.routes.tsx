@@ -4,7 +4,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useTheme } from "tamagui";
 import HamburgerMenuIcon from "../assets/icons/HamburgerMenuIcon";
 import NotificationIcon from "../assets/icons/NotificationIcon";
-import { StatusBar } from "react-native";
 import { NavigationHeader } from "../components/NavigationHeader";
 
 export type AppTabsRoutes = {
@@ -20,7 +19,7 @@ export const AppRoutes = () => {
   
   
   return (
-    <Tab.Navigator screenOptions={({ navigation, route }) => {
+    <Tab.Navigator screenOptions={({ route }) => {
       const headerTitles = {
         Home: '',
         Profile: 'Perfil'

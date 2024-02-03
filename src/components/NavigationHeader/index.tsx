@@ -1,8 +1,6 @@
-import { Stack, Text, useTheme, XStack, YStack } from "tamagui";
-import { ReactNode } from "react";
+import { Stack, Text, XStack } from "tamagui";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { BottomTabHeaderProps } from "@react-navigation/bottom-tabs";
-import { View } from "react-native";
 
 type NavigationHeaderProps = {
   title?: string

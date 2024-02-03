@@ -1,4 +1,3 @@
-import {View} from "react-native";
 import { YStack } from "tamagui";
 
 export const HomePage = () => {
