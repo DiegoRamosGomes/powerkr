@@ -1,20 +1,20 @@
 import { InputWithLabel } from "../../InputWithLabel";
 import { Button, Text, YStack } from "tamagui";
 import EyeIcon from "../../../assets/icons/EyeIcon";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { authFormSchema, authFormType } from "../../../models/auth-user.model";
+import AuthContext from "../../../contexts/AuthContext";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "react-native-screens/native-stack";
+import { RootStackRoutes } from "../../../routes";
 
 export const AuthForm = () => {
+  const { loginUserWithEmail, loading } = useContext(AuthContext)
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackRoutes>>()
+  
   const [passwordVisible, setPasswordVisible] = useState(false)
-  
-  const authFormSchema = z.object({
-    email: z.string().email('Email inválido'),
-    password: z.string().min(3, 'A senha deve possuir no minimo 3 caracteres')
-  })
-  
-  type authFormType = z.infer<typeof authFormSchema>
   
   const {
     setValue,
@@ -34,8 +34,13 @@ export const AuthForm = () => {
     setPasswordVisible(prevState => !prevState)
   }
   
-  const onSubmit = (data: authFormType) => {
-    console.log('logn', data)
+  const onSubmit = async (data: authFormType) => {
+    const hasLogged = await loginUserWithEmail(data.email, data.password)
+    if (!hasLogged) {
+      return alert('Usuario ou senha incorretos')
+    }
+    
+    navigation.navigate('Home')
   }
   
   return (
@@ -65,7 +70,12 @@ export const AuthForm = () => {
         errorMessage={errors.password?.message}
       />
       <Text textAlign={'right'} color={'$brand_primary_pure'} fontSize={'$2'}>Esqueceu a senha?</Text>
-      <Button bg={'$brand_primary_pure'} br={500} onPress={handleSubmit(onSubmit)}>Entrar</Button>
+      <Button
+        disabled={loading}
+        bg={loading? '$brand_primary_pure_disabled' : '$brand_primary_pure'}
+        br={500}
+        onPress={handleSubmit(onSubmit)}
+      >Entrar</Button>
     </YStack>
   )
 }

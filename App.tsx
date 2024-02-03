@@ -5,6 +5,7 @@ import { Routes } from "./src/routes";
 import { TamaguiProvider } from "tamagui";
 import tamaguiConfig from "./tamagui.config";
 import { useFonts } from "expo-font";
+import { AuthProvider } from "./src/contexts/AuthContext";
 
 
 export default function App() {
@@ -21,7 +22,9 @@ export default function App() {
   return (
     <TamaguiProvider defaultTheme={'dark'} config={tamaguiConfig}>
       <NavigationContainer>
-        <Routes/>
+        <AuthProvider>
+          <Routes/>
+        </AuthProvider>
       </NavigationContainer>
     </TamaguiProvider>
   );

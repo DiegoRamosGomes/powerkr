@@ -3,7 +3,7 @@ import { AuthPage } from "../pages/Auth";
 import { HomePage } from "../pages/Home";
 import { ProfilePage } from "../pages/Profile";
 
-type RootStackRoutes = {
+export type RootStackRoutes = {
   Auth: undefined
   Home: undefined
   Profile: undefined
