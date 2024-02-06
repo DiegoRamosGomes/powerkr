@@ -21645,13 +21645,17 @@
       "medium": {
         "family": "InterMedium",
         "size": {
-          "2": 14
+          "1": 12,
+          "2": 14,
+          "3": 16,
+          "5": 20
         }
       },
       "bold": {
         "family": "InterBold",
         "size": {
           "2": 14,
+          "3": 16,
           "10": 30
         }
       }
@@ -21746,11 +21750,18 @@
         "brand_secondary_pure": "#182E43",
         "brand_primary_pure": "#F7B519",
         "brand_primary_pure_disabled": "#866619",
-        "content_text_secondary": "#FFFFFF",
+        "content_text_primary": "#FFFFFF",
+        "content_text_secondary": "#CDD5DF",
         "content_text_tertiary": "#9AA4B2",
+        "content_background_screen": "#121926",
+        "content_shape_primary": "#202939",
         "content_shape_secondary": "#364152",
         "content_shape_tertiary": "#4B5565",
         "content_error": "#dc2222",
+        "system_success_light": "#F1FEEB",
+        "system_success_dark": "#1D8935",
+        "system_success_mid": "#44CB4B",
+        "system_warning_dark": "#907F0A",
         "id": "dark"
       }
     },
@@ -23354,15 +23365,15 @@
         "3": {
           "isVar": true,
           "key": "$3",
-          "name": "space-9",
-          "val": 13,
+          "name": "space-4",
+          "val": 10,
           "variable": ""
         },
         "4": {
           "isVar": true,
           "key": "$4",
-          "name": "space-11",
-          "val": 18,
+          "name": "space-5",
+          "val": 12,
           "variable": ""
         },
         "5": {
@@ -23375,8 +23386,8 @@
         "6": {
           "isVar": true,
           "key": "$6",
-          "name": "space-15",
-          "val": 32,
+          "name": "space-7",
+          "val": 16,
           "variable": ""
         },
         "7": {
@@ -23804,8 +23815,8 @@
         "10": {
           "isVar": true,
           "key": "$10",
-          "name": "size-19",
-          "val": 104,
+          "name": "size-11",
+          "val": 100,
           "variable": ""
         },
         "11": {
@@ -25546,15 +25557,15 @@
       "$space.3": {
         "isVar": true,
         "key": "$3",
-        "name": "space-9",
-        "val": 13,
+        "name": "space-4",
+        "val": 10,
         "variable": ""
       },
       "$space.4": {
         "isVar": true,
         "key": "$4",
-        "name": "space-11",
-        "val": 18,
+        "name": "space-5",
+        "val": 12,
         "variable": ""
       },
       "$space.5": {
@@ -25567,8 +25578,8 @@
       "$space.6": {
         "isVar": true,
         "key": "$6",
-        "name": "space-15",
-        "val": 32,
+        "name": "space-7",
+        "val": 16,
         "variable": ""
       },
       "$space.7": {
@@ -25994,8 +26005,8 @@
       "$size.10": {
         "isVar": true,
         "key": "$10",
-        "name": "size-19",
-        "val": 104,
+        "name": "size-11",
+        "val": 100,
         "variable": ""
       },
       "$size.11": {

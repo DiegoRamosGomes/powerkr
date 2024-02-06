@@ -6,6 +6,7 @@ import { TamaguiProvider } from "tamagui";
 import tamaguiConfig from "./tamagui.config";
 import { useFonts } from "expo-font";
 import { AuthProvider } from "./src/contexts/AuthContext";
+import { StatusBar } from "react-native";
 
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
   
   return (
     <TamaguiProvider defaultTheme={'dark'} config={tamaguiConfig}>
+      <StatusBar barStyle={'light-content'} />
       <NavigationContainer>
         <AuthProvider>
           <Routes/>
