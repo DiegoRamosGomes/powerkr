@@ -40,7 +40,7 @@ export const AuthForm = () => {
       return alert('Usuario ou senha incorretos')
     }
     
-    navigation.navigate('Home')
+    navigation.navigate('AppRoutes')
   }
   
   return (

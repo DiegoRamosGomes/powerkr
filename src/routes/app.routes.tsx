@@ -25,39 +25,39 @@ const Tab = createBottomTabNavigator<AppTabsRoutes>();
 export const AppRoutes = () => {
   const theme = useTheme()
   
-  
   return (
-    <Tab.Navigator screenOptions={({ route }) => {
-      const headerTitles = {
-        Home: '',
-        Profile: 'Perfil',
-        Appointments: '',
-        Committees: ''
-      }
-      return {
-        headerStyle: {
-          shadowOffset: { width: 0, height: 0 },
-        },
-        header: (props) => (<NavigationHeader
-          title={headerTitles[route.name]}
-          {...props}
-        />),
-        tabBarStyle: {
-          borderTopRadius: 24,
-          borderBottomRadius: 12,
-          backgroundColor: theme.brand_secondary_mid.val,
-          position: 'absolute',
-          overflow: 'hidden',
-          left: 0,
-          bottom: 0,
-          right: 0,
-          padding: 5,
-          borderTopWidth: 0
-        },
-        tabBarActiveTintColor: theme.content_text_primary.val,
-        tabBarInactiveTintColor: theme.content_text_tertiary.val
-      }
-    }}>
+    <Tab.Navigator
+      screenOptions={({ route }) => {
+        const headerTitles = {
+          Home: '',
+          Profile: 'Perfil',
+          Appointments: '',
+          Committees: ''
+        }
+        return {
+          headerStyle: {
+            shadowOffset: { width: 0, height: 0 },
+          },
+          header: (props) => (<NavigationHeader
+            title={headerTitles[route.name]}
+            {...props}
+          />),
+          tabBarStyle: {
+            borderTopRadius: 24,
+            borderBottomRadius: 12,
+            backgroundColor: theme.brand_secondary_mid.val,
+            position: 'absolute',
+            overflow: 'hidden',
+            left: 0,
+            bottom: 0,
+            right: 0,
+            padding: 5,
+            borderTopWidth: 0
+          },
+          tabBarActiveTintColor: theme.content_text_primary.val,
+          tabBarInactiveTintColor: theme.content_text_tertiary.val
+        }
+      }}>
       <Tab.Screen
         name={'Home'}
         component={HomePage}

@@ -1,6 +1,9 @@
 import { createContext, ReactNode, useState } from "react";
 import { UserModel } from "../models/user.model";
 import { AuthService } from "../services/auth.service";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "react-native-screens/native-stack";
+import { RootStackRoutes } from "../routes";
 
 type AuthContextProps = {
   isLogged: boolean
@@ -19,6 +22,7 @@ const AuthContext = createContext<AuthContextProps>({} as AuthContextProps)
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const service = AuthService()
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackRoutes>>()
   
   const [user, setUser] = useState<UserModel | null>(null)
   const [loading, setLoading] = useState(false)
@@ -39,6 +43,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   
   const logout = () => {
     setUser(null)
+    navigation.navigate('Auth')
   }
   
   const initiateUserLogged = async () => {

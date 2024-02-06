@@ -4,4 +4,5 @@ export type UserModel = {
   avatar_url: string
   email: string
   business_name: string
+  department_name: string
 }
