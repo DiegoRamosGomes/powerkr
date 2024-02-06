@@ -9,9 +9,9 @@ import {
 import { useContext, useState } from "react";
 import AuthContext from "../../contexts/AuthContext";
 import { Select } from "../../components/Select";
-import UserCircle from "../../assets/icons/UserCircle";
 import ChartPieIcon from "../../assets/icons/ChartPieIcon";
 import { PersonalTab } from "../../components/Home/PersonalTab";
+import UserCircleIcon from "../../assets/icons/UserCircleIcon";
 
 export const HomePage = () => {
   const { user } = useContext(AuthContext)
@@ -37,7 +37,7 @@ export const HomePage = () => {
                 borderRadius={50}
                 gap={'$2'}
               >
-                <UserCircle/>
+                <UserCircleIcon size={20} color={'white'}/>
                 <SizableText color={'white'} textAlign={'center'}>Pessoal</SizableText>
               </Tabs.Tab>
               <Tabs.Tab

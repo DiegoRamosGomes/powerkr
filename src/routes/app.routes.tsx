@@ -5,10 +5,16 @@ import { useTheme } from "tamagui";
 import HamburgerMenuIcon from "../assets/icons/HamburgerMenuIcon";
 import NotificationIcon from "../assets/icons/NotificationIcon";
 import { NavigationHeader } from "../components/NavigationHeader";
+import HouseIcon from "../assets/icons/HouseIcon";
+import ChatTeardropIcon from "../assets/icons/ChatTeardropIcon";
+import AppointmentsIcon from "../assets/icons/AppointmentsIcon";
+import UserCircleIcon from "../assets/icons/UserCircleIcon";
 
 export type AppTabsRoutes = {
   Home: undefined
-  Profile: undefined
+  Profile: undefined,
+  Appointments: undefined
+  Committees: undefined
 }
 
 
@@ -22,34 +28,67 @@ export const AppRoutes = () => {
     <Tab.Navigator screenOptions={({ route }) => {
       const headerTitles = {
         Home: '',
-        Profile: 'Perfil'
+        Profile: 'Perfil',
+        Appointments: 'Compromissos',
+        Committees: 'Comitês'
       }
       return {
         headerStyle: {
-          backgroundColor: theme.content_error.val,
           shadowOffset: { width: 0, height: 0 },
         },
-        header: (props) => <NavigationHeader
+        header: (props) => (<NavigationHeader
           title={headerTitles[route.name]}
           {...props}
-        />
+        />),
+        tabBarStyle: {
+          borderTopRadius: 24,
+          borderBottomRadius: 12,
+          backgroundColor: theme.brand_secondary_mid.val,
+          position: 'absolute',
+          overflow: 'hidden',
+          left: 0,
+          bottom: 0,
+          right: 0,
+          padding: 5,
+          borderTopWidth: 0
+        },
+        tabBarActiveTintColor: theme.content_text_primary.val,
+        tabBarInactiveTintColor: theme.content_text_tertiary.val
       }
     }}>
       <Tab.Screen
         name={'Home'}
         component={HomePage}
         options={{
-          title: 'Home',
           headerRight: NotificationIcon,
-          headerLeft: HamburgerMenuIcon
+          headerLeft: HamburgerMenuIcon,
+          tabBarIcon: ({color}) => (<HouseIcon color={color} />)
+        }}
+      />
+      <Tab.Screen
+        name={'Appointments'}
+        component={HomePage}
+        options={{
+          headerRight: NotificationIcon,
+          headerLeft: HamburgerMenuIcon,
+          tabBarIcon: ({color}) => (<AppointmentsIcon color={color} />)
+        }}
+      />
+      <Tab.Screen
+        name={'Committees'}
+        component={HomePage}
+        options={{
+          headerRight: NotificationIcon,
+          headerLeft: HamburgerMenuIcon,
+          tabBarIcon: ({color, size}) => (<ChatTeardropIcon color={color} size={size}/>)
         }}
       />
       <Tab.Screen
         name={'Profile'}
         component={ProfilePage}
         options={{
-          title: 'Perfil',
-          headerLeft: HamburgerMenuIcon
+          headerLeft: HamburgerMenuIcon,
+          tabBarIcon: ({color}) => (<UserCircleIcon color={color} />)
         }}
       />
     </Tab.Navigator>

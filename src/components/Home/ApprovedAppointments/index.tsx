@@ -45,7 +45,7 @@ export const ApprovedAppointments = () => {
                 color={'$content_text_primary'}
               >{appointment.title}</Text>
               <XStack justifyContent={'space-between'} alignItems={'center'}>
-                <ChatTeardropIcon/>
+                <ChatTeardropIcon size={16}/>
                 <XStack gap={'$1.5'}>
                   <CalendarIcon/>
                   <Text color={'$content_text_tertiary'}>{appointment.date}</Text>

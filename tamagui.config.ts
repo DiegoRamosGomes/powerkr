@@ -48,6 +48,7 @@ const tamaguiConfig = createTamagui({
   },
   themes: {
     dark: {
+      brand_secondary_mid: '#112439',
       brand_secondary_pure: '#182E43',
       brand_primary_pure: '#F7B519',
       brand_primary_pure_disabled: '#866619',
